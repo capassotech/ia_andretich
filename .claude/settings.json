@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__jira__searchJiraIssuesUsingJql",
+      "mcp__sqlserver__list_tables",
+      "mcp__jira__getAccessibleAtlassianResources",
+      "mcp__jira__getVisibleJiraProjects",
+      "Read",
+      "Glob",
+      "Grep"
+    ],
+    "additionalDirectories": [
+      "../bambuk",
+      "../bambuk-api",
+      "../flok-front",
+      "../flok-back",
+      "../api-servicios"
+    ]
+  }
+}

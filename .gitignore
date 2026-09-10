@@ -1,0 +1,4 @@
+.mcp.json
+.claude/repos.config
+node_modules/
+.DS_Store

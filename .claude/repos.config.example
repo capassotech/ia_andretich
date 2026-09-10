@@ -1,0 +1,10 @@
+# Copiar a .claude/repos.config (gitignoreado) y completar con las rutas locales reales.
+# Si una variable queda vacía o el archivo no existe, el agente usa como default la
+# carpeta hermana de ia_andretich/ (ver CLAUDE.md): ../bambuk, ../bambuk-api,
+# ../flok-front, ../flok-back, ../api-servicios.
+BAMBUK_FRONT=
+BAMBUK_API=
+CATALOGOYAPI=
+FLOK_FRONT=
+FLOK_BACK=
+SERVICIOS_ANDRETICH=

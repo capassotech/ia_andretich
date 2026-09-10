@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "jira": {
+      "type": "sse",
+      "url": "https://mcp.atlassian.com/v1/sse"
+    },
+    "sqlserver": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@executeautomation/database-server",
+        "--sqlserver",
+        "--server",
+        "<SQLSERVER_HOST, ej: localhost>",
+        "--port",
+        "<SQLSERVER_PORT, ej: 1433>",
+        "--database",
+        "<SQLSERVER_DATABASE>",
+        "--user",
+        "<SQLSERVER_USER>",
+        "--password",
+        "<SQLSERVER_PASSWORD>"
+      ]
+    },
+    "sqlserver-carrito": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@executeautomation/database-server",
+        "--sqlserver",
+        "--server",
+        "<SQLSERVER_HOST, ej: localhost>",
+        "--port",
+        "<SQLSERVER_PORT, ej: 1433>",
+        "--database",
+        "DB_CARRITO",
+        "--user",
+        "<SQLSERVER_USER>",
+        "--password",
+        "<SQLSERVER_PASSWORD>"
+      ]
+    }
+  }
+}
