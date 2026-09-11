@@ -35,28 +35,25 @@ API de servicios) con acceso a Jira y SQL Server.
    Grep) — no hay ningún MCP de filesystem que configurar. Si clonaste los repos como
    carpetas hermanas de `ia_andretich/` (`../bambuk`, `../bambuk-api`, `../flok-front`,
    `../flok-back`, `../api-servicios`), no necesitás hacer nada más: ese caso ya está
-   cubierto por el `.claude/settings.json` del repo. Si tu layout es distinto (por
-   ejemplo, tenés todo clonado en otro lado, o `flok-back`/`api-servicios` viven dentro
-   de un `CatalogoYApi` que no es hermano directo), creá o editá tu propio
-   `.claude/settings.local.json` (gitignoreado) agregando esas rutas absolutas a
-   `permissions.additionalDirectories`:
+   cubierto por el `.claude/settings.json` del repo.
 
-   ```json
-   {
-     "permissions": {
-       "additionalDirectories": [
-         "/ruta/absoluta/a/bambuk",
-         "/ruta/absoluta/a/bambuk-api",
-         "/ruta/absoluta/a/flok-front",
-         "/ruta/absoluta/a/CatalogoYApi"
-       ]
-     }
-   }
+   Si tu layout es distinto (por ejemplo, tenés todo clonado en otro lado, o
+   `flok-back`/`api-servicios` viven dentro de un `CatalogoYApi` que no es hermano
+   directo), copiá la plantilla y completá tus rutas absolutas:
+
+   ```
+   cp .claude/settings.local.json.example .claude/settings.local.json
    ```
 
-   Sin la ruta correspondiente ahí, cualquier intento de leer o editar código fuera de
-   `ia_andretich/` va a fallar aunque el path exista en disco — este es el paso que
-   reemplaza al viejo MCP `clientes-fs`.
+   Editá `additionalDirectories` con las rutas que necesites (borrá las que no apliquen
+   a tu setup) y dejá `enabledMcpjsonServers` como está — sin ese campo, Claude Code te
+   va a pedir aprobar manualmente cada MCP (`jira`, `sqlserver`, `sqlserver-carrito`) la
+   primera vez que se use en la sesión.
+
+   `settings.local.json` está gitignoreado (nunca se sube, es config personal). Sin la
+   ruta correspondiente en `additionalDirectories`, cualquier intento de leer o editar
+   código fuera de `ia_andretich/` va a fallar aunque el path exista en disco — este es
+   el paso que reemplaza al viejo MCP `clientes-fs`.
 
 4. Abrir Claude Code en esta carpeta. Al usar por primera vez el MCP `jira`, se va a
    pedir autenticación OAuth contra Atlassian (Jira + Confluence).

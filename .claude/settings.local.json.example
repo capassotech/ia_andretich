@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "/ruta/absoluta/a/bambuk",
+      "/ruta/absoluta/a/bambuk-api",
+      "/ruta/absoluta/a/flok-front",
+      "/ruta/absoluta/a/CatalogoYApi"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "jira",
+    "sqlserver",
+    "sqlserver-carrito"
+  ]
+}
