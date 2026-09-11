@@ -81,4 +81,16 @@ herramientas nativas (Read, Edit, Glob, Grep) más `permissions.additionalDirect
   - `jira-tickets`: cómo buscar, leer, actualizar y comentar tickets.
   - `multi-project-triage`: cómo diagnosticar un problema que puede originarse en
     cualquiera de los proyectos del cliente.
+- Antes de desarrollar una funcionalidad nueva en bambuk o bambuk-api, leer
+  [docs/bambuk-arquitectura.md](docs/bambuk-arquitectura.md): arquitectura (Clean
+  Architecture) de cada repo, patrones usados (CQRS/MediatR en el backend, Context API
+  en el front), convenciones de nomenclatura, cómo agregar una feature/endpoint paso a
+  paso, y gotchas conocidos (FluentValidation no conectado, sin tests, etc.).
+- Antes de desarrollar en flok-front, flok-back o api-servicios (subcarpetas del
+  monorepo `CatalogoYApi`), leer
+  [docs/catalogoyapi-arquitectura.md](docs/catalogoyapi-arquitectura.md): mapeo de
+  carpetas del monorepo a cada proyecto, arquitectura real (mucho más legacy que
+  bambuk/bambuk-api: N-Layer sin DI, sin ORM, SQL embebido a mano, con solo el módulo
+  `Auth` de api-servicios siguiendo un patrón moderno a imitar), y gotchas de seguridad
+  (secretos committeados en texto plano).
 - No commitear nunca `.mcp.json` (tiene credenciales) — solo `.mcp.json.example`.
