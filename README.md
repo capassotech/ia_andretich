@@ -26,10 +26,10 @@ API de servicios) con acceso a Jira y SQL Server.
 
    y completar cada variable con la ruta local real del repo correspondiente
    (`BAMBUK_FRONT`, `BAMBUK_API`, `CATALOGOYAPI`, `FLOK_FRONT`, `FLOK_BACK`,
-   `SERVICIOS_ANDRETICH`). Ojo: `CATALOGOYAPI`, `FLOK_FRONT`, `FLOK_BACK` y
-   `SERVICIOS_ANDRETICH` van a la **misma ruta** si en tu setup flok-front, flok-back y
-   api-servicios están juntos en un solo repo (`CatalogoYApi`) en vez de en carpetas
-   separadas. Tampoco se versiona.
+   `SERVICIOS_ANDRETICH`). Ojo: `CATALOGOYAPI`, `FLOK_BACK` y `SERVICIOS_ANDRETICH` van
+   a la **misma ruta** si en tu setup flok-back y api-servicios están juntos en un solo
+   repo (`CatalogoYApi`). `FLOK_FRONT` siempre apunta al repo propio `flok-front`, no a
+   `CatalogoYApi`. Tampoco se versiona.
 
    El acceso a estos repos lo dan las herramientas nativas de archivos (Read, Edit, Glob,
    Grep) — no hay ningún MCP de filesystem que configurar. Si clonaste los repos como

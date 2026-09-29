@@ -28,14 +28,19 @@ puntual está vacía, usar como valor por defecto la carpeta hermana correspondi
 (`BAMBUK_API`), `../flok-front` (`FLOK_FRONT`), `../flok-back` (`FLOK_BACK`),
 `../api-servicios` (`SERVICIOS_ANDRETICH`, `CATALOGOYAPI`). Estos defaults son solo un
 fallback de último recurso — si la ruta resuelta (por `repos.config` o por default) no
-existe en disco, avisar al usuario en vez de asumir o inventar una ruta. **`CATALOGOYAPI`,
-`FLOK_FRONT`, `FLOK_BACK` y `SERVICIOS_ANDRETICH` pueden apuntar a la misma ruta local**:
-en algunos setups flok-front, flok-back y api-servicios viven juntos en un único repo
-(`CatalogoYApi`) en vez de en carpetas separadas — `repos.config` es la fuente de verdad
-sobre esto, no asumir un layout sin revisarlo primero. **`CatalogoYApi` es un monorepo
-que adentro contiene el frontend de Flok, el backend de Flok y la API de servicios de
-Andretich como subcarpetas** (no repos separados) — antes de buscar o editar algo de
-`flok-front`, `flok-back` o `api-servicios` cuando `repos.config` apunta a
+existe en disco, avisar al usuario en vez de asumir o inventar una ruta.
+
+**El frontend de Flok vive en su propio repo `flok-front` (`FLOK_FRONT`), NO dentro de
+`CatalogoYApi`.** Todo cambio o búsqueda sobre el front de Flok se hace en `flok-front`.
+Si dentro de `CatalogoYApi` aparece código de front (ej. `CatalogoWeb.Host/ClientApp/`),
+no tratarlo como el frontend de Flok vigente salvo que el usuario lo indique.
+
+**`CATALOGOYAPI`, `FLOK_BACK` y `SERVICIOS_ANDRETICH` pueden apuntar a la misma ruta
+local**: flok-back y api-servicios viven juntos en un único repo (`CatalogoYApi`) —
+`repos.config` es la fuente de verdad sobre esto, no asumir un layout sin revisarlo
+primero. **`CatalogoYApi` es un monorepo que adentro contiene el backend de Flok y la API
+de servicios de Andretich como subcarpetas** (no repos separados) — antes de buscar o
+editar algo de `flok-back` o `api-servicios` cuando `repos.config` apunta a
 `CatalogoYApi`, explorar la raíz del repo (y revisar `ESTRUCTURA_COMPONENTES.md` /
 `ORGANIZACION_COMPONENTES.md` si existen ahí) para identificar qué subcarpeta corresponde
 a cada proyecto, en vez de asumir un nombre de carpeta.
@@ -86,8 +91,8 @@ herramientas nativas (Read, Edit, Glob, Grep) más `permissions.additionalDirect
   Architecture) de cada repo, patrones usados (CQRS/MediatR en el backend, Context API
   en el front), convenciones de nomenclatura, cómo agregar una feature/endpoint paso a
   paso, y gotchas conocidos (FluentValidation no conectado, sin tests, etc.).
-- Antes de desarrollar en flok-front, flok-back o api-servicios (subcarpetas del
-  monorepo `CatalogoYApi`), leer
+- Antes de desarrollar en flok-back o api-servicios (subcarpetas del monorepo
+  `CatalogoYApi`) — o en flok-front, que es un repo aparte —, leer
   [docs/catalogoyapi-arquitectura.md](docs/catalogoyapi-arquitectura.md): mapeo de
   carpetas del monorepo a cada proyecto, arquitectura real (mucho más legacy que
   bambuk/bambuk-api: N-Layer sin DI, sin ORM, SQL embebido a mano, con solo el módulo

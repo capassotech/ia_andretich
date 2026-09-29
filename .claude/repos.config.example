@@ -4,6 +4,7 @@
 # ../flok-front, ../flok-back, ../api-servicios.
 BAMBUK_FRONT=
 BAMBUK_API=
+# FLOK_FRONT es el repo propio flok-front (NO apunta a CatalogoYApi).
 CATALOGOYAPI=
 FLOK_FRONT=
 FLOK_BACK=

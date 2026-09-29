@@ -1,17 +1,21 @@
 # CatalogoYApi — arquitectura y guía de desarrollo (Flok + api-servicios)
 
-`CatalogoYApi` es un **monorepo** que en muchos setups locales cubre tres proyectos del
-cliente a la vez: **flok-front**, **flok-back** y **api-servicios** (ver tabla de
-[../CLAUDE.md](../CLAUDE.md)). No son tres repos separados sino subcarpetas del mismo
+`CatalogoYApi` es un **monorepo** que cubre dos proyectos del cliente: **flok-back** y
+**api-servicios** (ver tabla de [../CLAUDE.md](../CLAUDE.md)), como subcarpetas del mismo
 repo `.sln` (`Catalogo-API.sln`). Antes de tocar código, resolver la ruta local vía
-`.claude/repos.config` (`CATALOGOYAPI`/`FLOK_FRONT`/`FLOK_BACK`/`SERVICIOS_ANDRETICH`,
-normalmente todas apuntando a la misma carpeta) — ver [../README.md](../README.md).
+`.claude/repos.config` (`CATALOGOYAPI`/`FLOK_BACK`/`SERVICIOS_ANDRETICH`, normalmente
+todas apuntando a la misma carpeta) — ver [../README.md](../README.md).
+
+> **El frontend de Flok vigente vive en el repo separado `flok-front` (`FLOK_FRONT`),
+> no en `CatalogoYApi`.** La sección "flok-front" de abajo describe el front que existe
+> dentro del monorepo (`CatalogoWeb.Host/ClientApp/catalogo/`); para cambios en el front
+> de Flok trabajar en `flok-front` y verificar ahí la estructura real.
 
 **Mapeo de carpetas → proyecto del cliente:**
 
 | Proyecto del cliente | Carpeta real dentro de `CatalogoYApi/` |
 |---|---|
-| flok-front | `CatalogoWeb.Host/ClientApp/catalogo/` (el React vive ahí, no en `ClientApp/` directo) |
+| flok-front | **Repo aparte `flok-front`** (dentro del monorepo queda un front en `CatalogoWeb.Host/ClientApp/catalogo/`, que no es el vigente) |
 | flok-back | `CatalogoWeb.Host/` (+ `ProyectoWeb.Services`, `ProyectoWeb.Services.Contract`, `MigracionInformacion.Services*`, referenciados por `ProjectReference`) |
 | api-servicios | `ServiciosAndretichAPI/` |
 
